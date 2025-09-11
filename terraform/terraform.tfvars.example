@@ -1,0 +1,19 @@
+# Example values for BigQuery embedding models
+# Copy this file to terraform.tfvars and update with your real values
+
+project_id = "your-project-id-123456"
+location   = "us-central1"
+
+# BigQuery connection
+connection_id = "my_vertex_ai_connection"
+
+# BigQuery dataset
+dataset_id = "models"
+
+# Model names
+text_embedding_model_name = "my_text_embedding"
+text_embedding_gemini_model_name = "my_text_embedding_gemini"
+
+# Vertex AI endpoints
+text_embedding_endpoint = "text-embedding-005"
+text_embedding_gemini_endpoint = "text-embedding-005"

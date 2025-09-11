@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "financial-app"
+version = "0.1.0"
+description = ""
+authors = ["manuel <manuelpazpintor@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.10"
+numpy = "2.1.1"
+pandas = "2.2.3"
+google-cloud-bigquery = { version = "3.27.0", extras = ["all"] }
+dotenv = "^0.9.9"
+streamlit = "^1.49.1"
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+select =  ["E", "W", "F"]
+ignore = ["E501"]

@@ -1,0 +1,95 @@
+tasks_investpy_news:
+    model_name: models.text_embedding
+    table_suffix_name: ""
+    mode: insert
+   # or "insert" for incremental updates
+    id_fields:
+      - title
+      - publish_datetime
+    content_fields:
+      - text
+      - title
+      - publish_date
+      - description
+    datetime_field: publish_datetime
+    min_datetime: "2025-09-01"
+    table_names:
+      - investpy_news_economy
+      - investpy_news_analyst-ratings
+      - investpy_news_transcripts
+      - investpy_news_insider-trading-news
+      - investpy_news_company-news
+      - investpy_news_stock-market-news
+      - investpy_news_investment-ideas
+      - investpy_news_earnings
+tasks_investpy_news_gemini:
+    model_name: models.text_embedding_gemini
+    table_suffix_name: ""
+    mode: create
+   # or "insert" for incremental updates
+    id_fields:
+      - title
+      - publish_datetime
+    content_fields:
+      - text
+      - title
+      - publish_date
+      - description
+    datetime_field: publish_datetime
+    min_datetime: "2025-09-01"
+    table_names:
+      - investpy_news_economy
+      - investpy_news_analyst-ratings
+      - investpy_news_transcripts
+      - investpy_news_insider-trading-news
+      - investpy_news_company-news
+      - investpy_news_stock-market-news
+      - investpy_news_investment-ideas
+      - investpy_news_earnings
+tasks_profiles_df:
+    model_name: models.text_embedding
+    table_suffix_name: ""
+    mode: create
+    id_fields:
+      - Symbol
+    content_fields:
+      - description
+      - industry
+      - sector
+      - country
+      - exchange
+      - fullTimeEmployees
+    table_names:
+      - profiles_df
+
+tasks_profiles_no_metadata:
+    model_name: models.text_embedding
+    table_suffix_name: "_no_metadata"
+    mode: create
+    id_fields:
+      - Symbol
+    content_fields:
+      - description
+    table_names:
+      - profiles_df
+
+
+tasks_earnings_transcripts:
+    model_name: models.text_embedding
+    table_suffix_name: ""
+    mode: create
+   # or "insert" for incremental updates
+    id_fields:
+      - symbol
+      - year
+      - quarter
+    content_fields:
+      - content
+      - symbol
+      - year
+      - quarter
+      - date
+    datetime_field: date
+    min_datetime: '2025-06-01'
+    table_names:
+      - earnings_transcripts
