@@ -17,7 +17,7 @@ from pinecone import Pinecone
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from vertex_ai_embeddings import VertexAIEmbeddings
+from src.utils.ml.embeddings.src.vertex_ai_embeddings import VertexAIEmbeddings
 
 load_dotenv()
 
