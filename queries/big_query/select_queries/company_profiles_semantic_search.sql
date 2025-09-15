@@ -11,6 +11,7 @@ distances AS (
   SELECT
     t.content AS content,
     t.industry,
+    t.symbol,
     t.sector,
     t.country,
     t.companyname AS title,
@@ -26,6 +27,7 @@ distances AS (
 )
 SELECT
   content,
+  symbol,
   industry,
   sector,
   country,

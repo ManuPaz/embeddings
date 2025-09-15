@@ -1,0 +1,59 @@
+
+# Table configuration
+tables:
+  # Company profiles
+  profiles_df_embeddings:
+    index_name: "profiles-df-full"
+    dimension: 768
+    fields_to_include:
+      - Symbol
+      - ml_generate_embedding_result
+      - ml_generate_embedding_statistics
+      - industry
+      - sector
+      - country
+      - exchange
+      - currency
+      - companyName
+      - content
+      - isEtf
+      - isActivelyTrading
+      - isFund
+      - isAdr
+    fields_to_exclude: []
+    id_fields:
+      - Symbol
+    metadata_fields:
+      - Symbol
+      - industry
+      - sector
+      - country
+      - exchange
+      - currency
+      - companyName
+    text_field: content
+
+  # Earnings transcripts
+  earnings_transcripts_embeddings:
+    index_name: "earnings-transcripts"
+    dimension: 768
+    fields_to_include:
+      - symbol
+      - year
+      - quarter
+      - date
+      - content
+      - ml_generate_embedding_result
+      - ml_generate_embedding_statistics
+    fields_to_exclude: []
+    id_fields:
+      - symbol
+      - year
+      - quarter
+    metadata_fields:
+      - symbol
+      - year
+      - quarter
+      - date
+      - content
+    text_field: content
