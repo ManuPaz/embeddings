@@ -182,14 +182,6 @@ cd src/utils/ml/embeddings/src/scripts/migrations
 python migrate_to_pinecone.py
 ```
 
-**Migration Features:**
-- ✅ **Batch processing** with configurable batch sizes
-- ✅ **ORDER BY** clause using `id_fields` for consistent pagination
-- ✅ **Metadata filtering** - include/exclude specific fields
-- ✅ **Custom ID generation** from multiple fields
-- ✅ **Progress tracking** with detailed logging
-- ✅ **Error handling** and recovery
-
 #### Step 3: Environment Variables
 
 ```bash
@@ -209,7 +201,7 @@ MIGRATION_MAX_WORKERS=4
 
 #### Quick Start RAG System
 
-The module includes a complete RAG system that integrates VertexAI embeddings with Pinecone:
+The module includes an example of RAG system that integrates VertexAI embeddings with Pinecone:
 
 ```bash
 cd src/utils/ml/embeddings/src/scripts/examples
@@ -223,12 +215,6 @@ python rag_example.py
 - **Pinecone Vector Store**: High-performance vector search
 - **Google Generative AI**: `gemini-2.0-flash-lite` for text generation
 - **LangChain Integration**: Complete RAG pipeline
-
-**💡 Capabilities:**
-- **Semantic Search**: Find similar documents using natural language
-- **Question Answering**: Get contextual answers from your data
-- **Interactive Dialog**: Command-line interface for testing
-- **Source Attribution**: See which documents were used for answers
 
 #### Example Usage
 
@@ -302,62 +288,6 @@ vectorstore = Pinecone.from_existing_index(
     embedding=embeddings
 )
 ```
-
-#### Multiple Index Support
-
-```python
-# Support for multiple Pinecone indexes
-indices = {
-    "companies": "company-profiles",
-    "news": "financial-news",
-    "reports": "analyst-reports"
-}
-
-# Query specific index
-result = rag_system.ask_question(
-    "What are the latest market trends?",
-    index_type="news"
-)
-```
-
-#### Filtered Search
-
-```python
-# Search with metadata filters
-filter_metadata = {
-    "sector": "technology",
-    "year": {"$gte": 2023}
-}
-
-results = rag_system.search_with_filters(
-    query="AI companies",
-    filter_metadata=filter_metadata
-)
-```
-
-### Performance & Scalability
-
-**🚀 Pinecone Benefits:**
-- **Sub-second search** across millions of vectors
-- **Serverless architecture** - no infrastructure management
-- **Automatic scaling** based on usage
-- **Global availability** with low latency
-
-**📊 Migration Performance:**
-- **Batch processing**: 200 vectors per batch (configurable)
-- **Parallel processing**: Up to 4 workers
-- **Progress tracking**: Real-time migration status
-- **Error recovery**: Automatic retry on failures
-
-### Cost Comparison
-
-| Service | Cost | Use Case |
-|---------|------|----------|
-| **BigQuery** | $5/TB scanned | Analytics, reporting |
-| **Pinecone** | $70/month (1M vectors) | Real-time search, RAG |
-| **VertexAI** | $0.00002/1K chars | Embedding generation |
-
-**💡 Recommendation**: Use BigQuery for analytics and Pinecone for real-time search and RAG applications.
 
 ### Troubleshooting
 
